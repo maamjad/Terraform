@@ -1,19 +1,18 @@
 ############# How to create an vpc and subnet by using terraform ##############
 
-resource "aws_vpc" "main" {
+resource "aws_vpc" "my_vpc" {
   cidr_block       = "10.0.0.0/16"
-  instance_tenancy = "default"
-
+  
   tags = {
-    Name = "main"
+    Name = "my_vpc"
   }
 }
 
-resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.main.id
+resource "aws_subnet" "my_subnet" {
+  vpc_id     = aws_vpc.my_vpc.id
   cidr_block = "10.0.1.0/24"
 
   tags = {
-    Name = "Main"
+    Name = "my_subnet"
   }
 }
