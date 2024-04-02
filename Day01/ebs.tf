@@ -1,9 +1,10 @@
-############# Terraform Provider Reference ##############
+############# How to create an ebs volume by using terraform ##############
 
-provider "aws" {
-  region     = "us-east-1"
-  access_key = "key"
-  secret_key = "key"
+resource "aws_ebs_volume" "my_ebsvolume" {
+  availability_zone = "us-east-1a"
+  size              = 10
+
+  tags = {
+    Name = "EBS_Volume"
+  }
 }
-
-############# How to create an ec2 Instance by using terraform ##############
